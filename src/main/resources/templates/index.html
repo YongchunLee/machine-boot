@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行者的信息空间</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/dist/css/bootstrap.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/blog.css}">
+  <script type="text/javascript" th:src="@{/dist/js/jquery.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/js/base.js}"></script>
+  <style>
+    .blog-header h1 {
+      font-family: "Microsoft YaHei";
+    }
+    .blog-header p {
+      font-family: 楷书;
+    }
+    .blog-post div img {
+      width: 160px;
+      height: 160px;
+    }
+
+    ul {
+      padding: 0;
+    }
+    ul>li {
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+<!-- top -->
+<input id="sys_user" class="hide" type="text" value="超级管理员" >
+<input id="sys_super_user" class="hide" value="超级管理员" >
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a id="homePage" href="#" class="blog-nav-item active">主页</a>
+      <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
+      <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+      <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+      <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+
+      <!-- 用户登录注销 -->
+      <div id="login" class="loginout pull-right" style="display: none" >
+        <span></span>
+        <a th:href="@{/user/logout}" >注销</a>
+      </div>
+      <div id="logout" class="loginout pull-right">
+        <a th:href="@{/user/login}" >登录</a>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- top -->
+
+<div class="container">
+  <div class="blog-header">
+    <h1 class="blog-title">行者无疆</h1>
+    <p class="lead blog-description">用心过好每一天！</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 blog-main">
+      <div class="blog-post">
+        <h2 class="blog-post-title">牛叉的发现</h2>
+        <p class="blog-post-meta">July 8, 2014 by <a href="#">转</a></p>
+        <p>如果26个英文字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 分别等于:1 2 3 4 5 6 7 8 9 10 11 12 13
+          14 1516 17 18 19 20 21 22 23 24 25 26。那么：Knowledge (知识)： K+N+O+W+L+E+D+G+E＝ 11+14+15+23+
+          12+5+4+7+5=
+          96%。Workhard (努力工作）：W+O+R+K+H+A+R+D＝ 23+15+18+11+8+1+18+4 =98%。也就是说知识和努力工作对我们人生的影响
+          可以达到96％和98％。Luck（好运） L+U+C+K＝12+21+3+11=47%。Love（爱情） L+O+V+E＝12+15+22+5=54%。看来，这些我们
+          通常认为重要的东西却并没起到最重要的作用。那么，什么可以决定我们100％的人生呢？是Money（金钱）吗？</p>
+        <hr>
+        <p>M+O+N+E+Y=13+15+14+5+25=72%。看来也不是。是Leadership (领导能力)吗？L+E+A+D+E+R+S+H+I+P=12+5+1+4+5+18+19+
+          9+16=89%还不是。金钱，权力也不能完全决定我们的生活。那是什么呢？其实，真正能使我们生活圆满的东西就在我们自己身上！
+          ATTITUDE (心态) A+T+T+I+T+U+D+E＝1+20+20+9+20+21+4+5=100%。我们对待人生的态度才能够100％的影响我们的生活，
+          或者说能够使我们的生活达到 100%的圆满！用什么样的态度去看待人生，就会得到什么样的人生哦！</p>
+      </div><!-- /.blog-post -->
+      <div class="blog-post">
+        <h2 class="blog-post-title">冯巩的55句经典语，这才是真正的幽默！</h2>
+        <p class="blog-post-meta">August 16, 2013 by <a href="#">转</a></p>
+        <p>1 姑娘们啊！哪有那麽多白马啊？找个驴凑合得了，别等到有一天驴都被抢没了，剩一堆骡子...</p>
+        <p>2 所谓美女，三分长相七分打扮、所谓气质，三分才气七分装蒜、所谓温柔，三分忍让七分压抑。&nbsp;</p>
+        <p>3 下辇子要做筷子，就不孤单了！&nbsp;</p>
+        <p>4 你的话，我连标点符号都不信。&nbsp;</p>
+        <p>5 此处不留爷，自有留爷处。处处不留爷，爷回家做家务。&nbsp;</p>
+        <p>6 铁公鸡还会留点儿铁锈呢，你根本就是个不锈钢公鸡！&nbsp;</p>
+        <p>7 陪我一起数星星吧，你智商低你就数月亮吧！&nbsp;</p>
+        <p>8 我太佩服我自己了，有时候照镜子的时候都给自己磕头！&nbsp;</p>
+        <p>9 最有魅力的人是“康师傅”天都有成千上万的人泡他。&nbsp;</p>
+        <p>10 想你想得饭都吃不下，真是太恶心了！&nbsp;</p>
+        <div style="TEXT-ALIGN:center"><img alt="图片" idx="0" th:src="@{images/psb.jpg}"/></div>
+        <p>11 其实我以前个子挺高的，只不过后来经常洗澡缩水了而已。&nbsp;</p>
+        <p>12 为什麽我一直感觉不幸福，难道是当幸福来敲门的时候，我不在家&nbsp;</p>
+        <p>13、干掉熊猫，我就是国宝！&nbsp;</p>
+        <p>14、别和我谈理想，戒了！&nbsp;</p>
+        <p>15、跌倒了，爬起来再哭~~~&nbsp;</p>
+        <p>16、低调！才是最牛B的炫耀！！&nbsp;</p>
+        <p>17、不吃饱哪有力气减肥啊？&nbsp;</p>
+        <p>18、真不好意思，让您贱笑了。&nbsp;</p>
+        <p>19、我能抵抗一切，除了诱惑……&nbsp;</p>
+        <p>20、老子不但有车，还是自行的……&nbsp;</p>
+        <div style="TEXT-ALIGN:center"><img alt="图片" idx="1" th:src="@{images/psb2.jpg}"/></div>
+        <p>21、点的是烟、抽的却是寂寞……&nbsp;</p>
+        <p>22、不是你不笑，一笑粉就掉！&nbsp;</p>
+        <p>23、人又不聪明，还学别人秃顶。&nbsp;</p>
+        <p>24、绑不住我的心就不要说我花心！&nbsp;</p>
+        <p>25、再牛b的肖邦，也弹不出老子的悲伤！&nbsp;</p>
+        <p>26、活着的时候开心点，因为我们要死很久。&nbsp;</p>
+        <p>27、请你以后不要在我面前说英文了，OK？&nbsp;</p>
+        <p>28、我这人从不记仇，一般有仇当场我就报了。&nbsp;</p>
+        <p>29、没什么事不要找我，有事更不用找我！&nbsp;</p>
+        <p>30、我那么喜欢你，你喜欢我一下会死啊?&nbsp;</p>
+        <div style="TEXT-ALIGN:center"><img alt="图片" idx="2" th:src="@{images/psb3.jpg}"/></div>
+        <p>31、我又不是人民币，怎么能让人人都喜欢我？&nbsp;</p>
+        <p>32、男人的话就像老太太的牙齿，有多少是真的？！&nbsp;</p>
+        <p>33、问：你喜欢我哪一点？答：我喜欢你离我远一点！&nbsp;</p>
+        <p>34、执子之手，方知子丑，泪流满面，子不走我走。</p>
+        <p>35、诸葛亮出山前，也没带过兵！凭啥我就要工作经验？&nbsp;</p>
+        <p>36、珍惜生活——上帝还让你活着，就肯定有他的安排。&nbsp;</p>
+        <p>37、雷锋做了好事不留名，但是每一件事情都记到日记里面。</p>
+        <p>38、师太，你是我心中的魔，贫僧离你越近，就离佛越远……&nbsp;</p>
+        <p>39、初中的体育老师说：谁敢再穿裙子上我的课，就罚她倒立。&nbsp;</p>
+        <p>40、自己选择45°仰视别人，就休怪他人135°俯视着看你。&nbsp;<br/>
+        <div style="TEXT-ALIGN:center"><img alt="图片" idx="3" th:src="@{images/psb4.jpg}"/></div>
+        <p>41、如果你看到面前的阴影，别怕，那是因为你的背后有阳光！&nbsp;</p>
+        <p>42、我允许你走进我的世界，但绝不允许你在我的世界里走来走去。</p>
+        <p>43、人永远不知道谁哪次不经意的跟你说了再见之后就真的再也不见了。&nbsp;</p>
+        <p>44、一分钟有多长？这要看你是蹲在厕所里面，还是等在厕所外面……&nbsp;</p>
+        <p>45、爱，就大声说出来，因为你永远都不会知道，明天和意外，哪个会先来！&nbsp;</p>
+        <p>46、你永远看不到我最寂寞的时候，因为在看不到你的时候就是我最寂寞的时候！&nbsp;</p>
+        <p>47、听说女人如衣服，兄弟如手足，回想起来，我竟然七手八脚地裸奔了二十多年！&nbsp;</p>
+        <p>48、今天心情不好，我只有四句话想说，包括这句和前面的两句，我的话说完了！&nbsp;</p>
+        <p>49、铁饭碗的真实含义不是在一个地方吃一辈子饭，而是一辈子到哪儿都有饭吃。&nbsp;</p>
+        <p>50、就算是一坨屎，也有遇见屎壳郎的那天。所以你大可不必为今天的自己有太多担忧。</p>
+        <p>51、如果中了一千万，我就去买30套房子租给别人，每天都去收一次房租。哇咔咔~~充实！&nbsp;</p>
+        <p>52、“恋”是个很强悍的字。它的上半部取自“变态”的“变”，下半部取自“变态”的“态”。&nbsp;</p>
+        <p>53、再过几十年，我们来相会，送到火葬场，全部烧成灰，你一堆，我一堆，谁也不认识谁，全部送到农村做化肥。&nbsp;</p>
+        <p>54、我爸说过的最让我感动的一句话：“孩子，好好学习吧，爸以前玩麻将都玩儿10块的，现在为了供你念书，改玩儿1块的了。”&nbsp;</p>
+        <p>55、同志们：别炒股，风险太大了，还是做豆腐最安全！做硬了是豆腐干，做稀了是豆腐脑，做薄了是豆腐皮，做没了是豆浆，放臭了是臭豆腐！稳赚不亏呀！<br/>
+        </p>
+      </div><!-- /.blog-post -->
+      <nav>
+        <ul class="pager">
+          <li><a href="#">上一页</a></li>
+          <li><a href="#">下一页</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 blog-sidbar">
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>About</h4>
+        <a href="http://www.luffy2019.xyz/lyc2018">静态网页</a><br/>
+        <a href="http://www.baidu.com">百度一下</a>
+        <p>
+          Hello Spring MVC!
+        </p>
+        <p style="font-family: Arial">
+          服务器时间：<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" />
+        </p>
+      </div>
+      <div class="sidebar-module sidebar-module-inset">
+        <h4>上传文件</h4>
+        <ul id="showUploadFiles">
+        </ul>
+      </div>
+      <div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">March 2014</a></li>
+          <li><a href="#">February 2014</a></li>
+          <li><a href="#">January 2014</a></li>
+          <li><a href="#">December 2013</a></li>
+          <li><a href="#">November 2013</a></li>
+          <li><a href="#">October 2013</a></li>
+          <li><a href="#">September 2013</a></li>
+          <li><a href="#">August 2013</a></li>
+          <li><a href="#">July 2013</a></li>
+          <li><a href="#">June 2013</a></li>
+          <li><a href="#">May 2013</a></li>
+          <li><a href="#">April 2013</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-module">
+        <h4>Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div>
+    </div><!-- /.blog-sidebar -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+<!-- footer -->
+<footer class="blog-footer">
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41172502000112" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+      <img th:src="@{/images/beian.png}" style="float:left;"/>
+      <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">豫公网安备 41172502000112号</p>
+    </a>
+    <a target="_blank" href="http://www.beian.miit.gov.cn/" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+      <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">域名信息备案管理系统</p>
+    </a>
+  </div>
+</footer>
+<!-- footer -->
+</body>
+</html>
