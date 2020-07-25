@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>书单详情</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/dist/css/bootstrap.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/dist/css/bootstrap-table.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/dist//css/bootstrap-dialog.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/blog.css}">
+  <script type="text/javascript" th:src="@{/dist/js/jquery.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap-dialog.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/dist/js/dialog.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap-table.min.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap-table-zh-CN.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrap-table-export.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/tableExport.min.js}"></script>
+  <script type="text/javascript" th:src="@{/dist/js/bootstrapValidator.js}" ></script>
+  <script type="text/javascript" th:src="@{/js/base.js}"></script>
+  <style>
+    body {
+      font-family: Arial;
+    }
+    .content1,.content2 {
+      margin: 20px;
+    }
+    .content1 .button-panel {
+      float: right;
+      margin: 10px;
+    }
+    .content1:after, .content2:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+<!-- top -->
+<div class="blog-masthead">
+  <input id="contextPath" type="hidden" th:value="${#servletContext.contextPath}">
+  <div class="container">
+    <nav class="blog-nav">
+      <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
+      <a id="bookPage" href="#" class="blog-nav-item active">书单</a>
+      <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+      <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+      <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+
+      <!-- 用户登录注销 -->
+      <div id="login" class="loginout pull-right" style="display: none" >
+        <span></span>
+        <a th:href="@{/user/logout}" >注销</a>
+      </div>
+      <div id="logout" class="loginout pull-right">
+        <a th:href="@{/user/login}" >登录</a>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- top -->
+
+<!--conetnt-->
+<div class="container">
+  <div class="content1">
+    <div class="title">
+      <h1>图书信息</h1>
+    </div>
+    <div class="button-panel">
+      <button id="saveBook" type="button" class="btn btn-primary hide" onclick="bookForm.saveBook();" >保存</button>
+      <button id="returnTo" type="button" class="btn btn-primary" onclick="bookForm.returnTo();" >返回</button>
+    </div>
+  </div>
+
+  <div class="content2">
+    <form id="bookForm" class="form-horizontal" >
+      <input type="hidden" id="id" name="id" value="${book.id}" >
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">ISBN：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="isbn" name="isbn" th:value="${book.isbn}" class="form-control" />
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">书名：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="bookName" name="bookName" th:value="${book.bookName}" class="form-control" />
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">作者：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="author" name="author" th:value="${book.author}" class="form-control"/>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">出版社：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="publish" name="publish" th:value="${book.publish}" class="form-control"/>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">类别：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="category" name="category" th:value="${book.category}" class="form-control"/>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">版本号：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="edition" name="edition" th:value="${book.edition}" class="form-control"/>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">图书简介：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <input type="text" id="bookInfo" name="bookInfo" th:value="${book.bookInfo}" class="form-control"/>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label class="control-label col-sm-4 col-xs-12">图书备注：</label>
+          <div class="col-sm-8 col-xs-12">
+
+            <textarea rows="5" cols="20" id="remark" name="remark" class="form-control">[[${book.remark}]]</textarea>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!--conetnt-->
+
+<script type="text/javascript" th:src="@{/js/bookForm.js}"></script>
+<script>
+    bookForm.saveBook = function () {
+        var data = {};
+        data["id"] = $("#id").val();
+        data["isbn"] = $("#isbn").val();
+        data["bookName"] = $("#bookName").val();
+        data["author"] = $("#author").val();
+        data["publish"] = $("#publish").val();
+        data["category"] = $("#category").val();
+        data["edition"] = $("#edition").val();
+        data["bookInfo"] = $("#bookInfo").val();
+        data["remark"] = $("#remark").val();
+
+
+        $.ajax({
+            url: bookForm.updateBookUrl,
+            data: data,
+            type: 'POST',
+            success: function(message) {
+                if (message == "success")
+                    quickInfo("保存成功!");
+                else
+                    quickInfo("保存失败!", "error");
+            },
+            error: function(data) {
+                quickInfo("保存失败!", "error");
+            }
+        })
+    }
+
+    $(function() {
+        if ($("#sys_super_user").val() != "" && $("#sys_super_user").val() != undefined) {
+            $("#saveBook").removeClass("hide");
+        }
+    })
+</script>
+
+
+</body>
+</html>

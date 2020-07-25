@@ -1,6 +1,6 @@
 // js入口
 $(function() {
-    initLoad();
+    // initLoad();
 })
 
 /*
