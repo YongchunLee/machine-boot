@@ -15,5 +15,12 @@ public interface BookService {
      */
     List<Book> selectBookData();
 
+    /**
+     * 搜索书籍
+     * @param param
+     * @return
+     */
+    List<Book> getSearchData(String param);
+
     Book getBookData(Long id);
 }

@@ -37,6 +37,17 @@ public class BookController {
         return bookService.selectBookData();
     }
 
+    /**
+     * 书库管理
+     * 搜索图书数据
+     * @return
+     */
+    @RequestMapping("/book/search_data")
+    @ResponseBody
+    public List<Book> searchBookData(@RequestParam String findall) {
+        return bookService.getSearchData(findall);
+    }
+
     @RequestMapping("/book/book_form")
     public String bookForm(@RequestParam Long id, Model model) {
         Book book = bookService.getBookData(id);

@@ -4,6 +4,7 @@ book.js
 var contextPath = $("#contextPath").val()
 var bookList = {
     dataUrl: contextPath + "/book/book_data",
+    searchUrl: contextPath + "/book/search_data",
     userDataUrl: contextPath + "/book/user_book_data",
     delBookUrl: contextPath + "/book/del_book",
     addBookUrl: contextPath + "/book/add_book",
@@ -266,8 +267,23 @@ function init_data() {
     }
 }
 
+function search_data() {
+    var bookUrl = bookList.searchUrl + "?findall=" + $("#input-search").val()
+    bookList.searchData(bookUrl, bookList.loadTable);
+}
+
 $(function() {
     bookList.searchData(bookList.dataUrl, bookList.loadTable);
+    $("#search-data").click(function () {
+        search_data()
+    })
+    $("#input-search").keydown(function(event) {
+        var theEvent = window.event || event
+        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        if (code == 13) {
+            search_data()
+        }
+    })
 
     // bookList.user = $("#sys_user").val();
     // bookList.super_user = $("#sys_super_user").val();

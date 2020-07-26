@@ -17,4 +17,6 @@ public interface BookMapper {
             "edition, book_info, book_cover,create_time, modify_time, remark " +
             "from book where id=#{id}")
     Book getBookData(Long id);
+
+    List<Book> selectSearchData(String param);
 }

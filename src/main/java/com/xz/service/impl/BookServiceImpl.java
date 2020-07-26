@@ -23,6 +23,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> getSearchData(String param) {
+        return bookMapper.selectSearchData(param);
+    }
+
+    @Override
     public Book getBookData(Long id) {
         return bookMapper.getBookData(id);
     }
