@@ -12,7 +12,9 @@
 	<artifactId>machine-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>machine-boot</name>
+    <packaging>war</packaging>
 	<description>The platform of machine learning</description>
+
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -67,15 +69,22 @@
         <artifactId>bootstrap</artifactId>
         <version>4.0.0</version>
       </dependency>
+		<!--引入bootstrap-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+      <finalName>machine-boot</finalName>
+      <plugins>
+          <plugin>
+            <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+          </plugin>
+      </plugins>
 	</build>
 
 </project>

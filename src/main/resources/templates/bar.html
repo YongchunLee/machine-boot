@@ -13,7 +13,7 @@
       <div th:case="home" display:none>
         <a id="homePage" href="#" class="blog-nav-item active">主页</a>
         <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
-        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>
         <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
         <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
         <!-- 用户登录注销 -->
@@ -28,7 +28,7 @@
       <div th:case="book" display:none>
         <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
         <a id="bookPage" href="#" class="blog-nav-item active">书单</a>
-        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>
         <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
         <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
         <!-- 用户登录注销 -->
@@ -40,25 +40,25 @@
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
-      <div th:case="pmo" display:none>
+      <div th:case="dashboard" display:none>
         <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
         <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
-        <a id="pmoPage" href="#" class="blog-nav-item active">紫台数据</a>
+        <a id="dashPage" href="#" class="blog-nav-item active">仪表盘</a>
         <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
-        <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+        <a id="userManage" th:href="@{/user}" class="blog-nav-item d-none">用户管理</a>
         <!-- 用户登录注销 -->
-        <div id="login" class="loginout pull-right" style="display: none" >
+        <div id="login" class="loginout float-right" style="display: none" >
           <span></span>
           <a th:href="@{/user/logout}" >注销</a>
         </div>
-        <div id="logout" class="loginout pull-right">
+        <div id="logout" class="loginout float-right">
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
       <div th:case="city" display:none>
         <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
         <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
-        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>
         <a id="cityPage" href="#" class="blog-nav-item active">世界城市</a>
         <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
         <!-- 用户登录注销 -->
@@ -73,7 +73,7 @@
       <div th:case="user" display:none>
         <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
         <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
-        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>
         <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
         <a id="userManage" href="#" class="blog-nav-item hide active">用户管理</a>
         <!-- 用户登录注销 -->
