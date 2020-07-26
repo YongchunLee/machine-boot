@@ -21,7 +21,7 @@
           <span></span>
           <a th:href="@{/user/logout}" >注销</a>
         </div>
-        <div id="logout" class="loginout pull-right">
+        <div id="logout" class="loginout pull-right" style="display: none">
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <span></span>
           <a th:href="@{/user/logout}" >注销</a>
         </div>
-        <div id="logout" class="loginout pull-right">
+        <div id="logout" class="loginout pull-right" style="display: none">
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <span></span>
           <a th:href="@{/user/logout}" >注销</a>
         </div>
-        <div id="logout" class="loginout float-right">
+        <div id="logout" class="loginout float-right" style="display: none">
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
@@ -66,25 +66,25 @@
           <span></span>
           <a th:href="@{/user/logout}" >注销</a>
         </div>
-        <div id="logout" class="loginout pull-right">
+        <div id="logout" class="loginout pull-right" style="display: none">
           <a th:href="@{/user/login}" >登录</a>
         </div>
       </div>
-      <div th:case="user" display:none>
-        <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
-        <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
-        <a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>
-        <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
-        <a id="userManage" href="#" class="blog-nav-item hide active">用户管理</a>
-        <!-- 用户登录注销 -->
-        <div id="login" class="loginout pull-right" style="display: none" >
-          <span></span>
-          <a th:href="@{/user/logout}" >注销</a>
-        </div>
-        <div id="logout" class="loginout pull-right">
-          <a th:href="@{/user/login}" >登录</a>
-        </div>
-      </div>
+      <!--<div th:case="user" display:none>-->
+        <!--<a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>-->
+        <!--<a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>-->
+        <!--<a id="dashPage" th:href="@{/dashboard}" class="blog-nav-item">仪表盘</a>-->
+        <!--<a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>-->
+        <!--<a id="userManage" href="#" class="blog-nav-item hide active">用户管理</a>-->
+        <!--&lt;!&ndash; 用户登录注销 &ndash;&gt;-->
+        <!--<div id="login" class="loginout pull-right" style="display: none" >-->
+          <!--<span></span>-->
+          <!--<a th:href="@{/user/logout}" >注销</a>-->
+        <!--</div>-->
+        <!--<div id="logout" class="loginout pull-right" style="display: none">-->
+          <!--<a th:href="@{/user/login}" >登录</a>-->
+        <!--</div>-->
+      <!--</div>-->
     </nav>
   </div>
 </div>
