@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--top-->
+<div class="blog-masthead" id="topbar">
+  <input id="contextPath" type="hidden" th:value="${#servletContext.contextPath}">
+  <div class="container">
+    <nav class="blog-nav" th:switch="${activeUrl}">
+      <div th:case="home" display:none>
+        <a id="homePage" href="#" class="blog-nav-item active">主页</a>
+        <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
+        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+        <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+        <!-- 用户登录注销 -->
+        <div id="login" class="loginout pull-right" style="display: none" >
+          <span></span>
+          <a th:href="@{/user/logout}" >注销</a>
+        </div>
+        <div id="logout" class="loginout pull-right">
+          <a th:href="@{/user/login}" >登录</a>
+        </div>
+      </div>
+      <div th:case="book" display:none>
+        <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
+        <a id="bookPage" href="#" class="blog-nav-item active">书单</a>
+        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+        <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+        <!-- 用户登录注销 -->
+        <div id="login" class="loginout pull-right" style="display: none" >
+          <span></span>
+          <a th:href="@{/user/logout}" >注销</a>
+        </div>
+        <div id="logout" class="loginout pull-right">
+          <a th:href="@{/user/login}" >登录</a>
+        </div>
+      </div>
+      <div th:case="pmo" display:none>
+        <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
+        <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
+        <a id="pmoPage" href="#" class="blog-nav-item active">紫台数据</a>
+        <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+        <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+        <!-- 用户登录注销 -->
+        <div id="login" class="loginout pull-right" style="display: none" >
+          <span></span>
+          <a th:href="@{/user/logout}" >注销</a>
+        </div>
+        <div id="logout" class="loginout pull-right">
+          <a th:href="@{/user/login}" >登录</a>
+        </div>
+      </div>
+      <div th:case="city" display:none>
+        <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
+        <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
+        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="cityPage" href="#" class="blog-nav-item active">世界城市</a>
+        <a id="userManage" th:href="@{/user}" class="blog-nav-item hide">用户管理</a>
+        <!-- 用户登录注销 -->
+        <div id="login" class="loginout pull-right" style="display: none" >
+          <span></span>
+          <a th:href="@{/user/logout}" >注销</a>
+        </div>
+        <div id="logout" class="loginout pull-right">
+          <a th:href="@{/user/login}" >登录</a>
+        </div>
+      </div>
+      <div th:case="user" display:none>
+        <a id="homePage" th:href="@{/}" class="blog-nav-item">主页</a>
+        <a id="bookPage" th:href="@{/book}" class="blog-nav-item">书单</a>
+        <a id="pmoPage" th:href="@{/pmo}" class="blog-nav-item">紫台数据</a>
+        <a id="cityPage" th:href="@{/city}" class="blog-nav-item">世界城市</a>
+        <a id="userManage" href="#" class="blog-nav-item hide active">用户管理</a>
+        <!-- 用户登录注销 -->
+        <div id="login" class="loginout pull-right" style="display: none" >
+          <span></span>
+          <a th:href="@{/user/logout}" >注销</a>
+        </div>
+        <div id="logout" class="loginout pull-right">
+          <a th:href="@{/user/login}" >登录</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+</body>
+</html>
