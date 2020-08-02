@@ -23,5 +23,6 @@
       AND (ISBN=#{findall} or binary book_name LIKE CONCAT('%',#{findall},'%') or binary author LIKE CONCAT('%',#{findall},'%')
       or binary publish LIKE CONCAT('%',#{findall},'%') or category=#{findall} or binary edition LIKE CONCAT('%',#{findall},'%'))
     </if>
+    order by order_view
   </select>
 </mapper>

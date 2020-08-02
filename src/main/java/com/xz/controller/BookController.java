@@ -54,4 +54,11 @@ public class BookController {
         model.addAttribute("book", book);
         return "bookForm";
     }
+
+    @RequestMapping("/book/move_data")
+    @ResponseBody
+    public String moveData(@RequestParam Long moveId1, @RequestParam Long moveId2) {
+        bookService.moveup(moveId1, moveId2);
+        return "ok";
+    }
 }

@@ -23,4 +23,11 @@ public interface BookService {
     List<Book> getSearchData(String param);
 
     Book getBookData(Long id);
+
+    /**
+     * 移动两条数据的排序号
+     * @param id1
+     * @param Id2
+     */
+    void moveup(Long id1, Long Id2);
 }

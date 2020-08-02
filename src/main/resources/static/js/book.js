@@ -5,6 +5,7 @@ var contextPath = $("#contextPath").val()
 var bookList = {
     dataUrl: contextPath + "/book/book_data",
     searchUrl: contextPath + "/book/search_data",
+    moveUrl: contextPath + "/book/move_data",
     userDataUrl: contextPath + "/book/user_book_data",
     delBookUrl: contextPath + "/book/del_book",
     addBookUrl: contextPath + "/book/add_book",
@@ -19,7 +20,7 @@ var bookList = {
 
 
 bookList.loadTable = function(data) {
-    var blankHTML = "<tr><td colspan='7' style='text-align: center;'>无数据</td></tr>";
+    var blankHTML = "<tr><td colspan='8' style='text-align: center;'>无数据</td></tr>";
     // if (bookList.super_user != "") {
     //     var blankHTML = "<tr><td colspan='9' style='text-align: center;'>无</td></tr>";
     // } else if (bookList.user != "" && bookList.super_user == "") {
@@ -45,6 +46,32 @@ bookList.loadTable = function(data) {
             $tr.append("<td>" + (val.publish==null || val.publish=='' ? '——':val.publish) + "</td>");
             $tr.append("<td>" + (val.category==null || val.category=='' ? '——':val.category) + "</td>");
             $tr.append("<td>" + (val.edition==null || val.edition=='' ? '——':val.edition) + "</td>");
+            if (i == 0) {
+                $tr.append("<td><button id='btn_down" + val.id + "' class='btn btn-primary'>下移</button></td>");
+            } else if (i == data.length - 1) {
+                $tr.append("<td><button id='btn_up" + val.id + "' class='btn btn-primary'>上移</button></td>");
+            } else {
+                $tr.append("<td><button id='btn_up" + val.id + "' class='btn btn-primary'>上移</button><button id='btn_down" + val.id + "' class='btn btn-primary'>下移</button></td>");
+            }
+
+            // if (i >= 1) {
+            //     // $("#btn_down" + preId).click(function () {
+            //     //     var downUrl = bookList.moveUrl + "?moveId1=" + preId + "&moveId2=" + val.id;
+            //     //     bookList.searchData(downUrl, bookList.loadTable);
+            //     // })
+            //     console.log("#btn_up" + val.id)
+            //     console.log($("#btn_up" + val.id).attr("id"))
+            //     $("#btn_up" + val.id).click(function () {
+            //         console.log("ok")
+            //         console.log($(this).attr("id"));
+            //         // var upUrl = bookList.moveUrl + "?moveId1=" + val.id + "&moveId2=" + preId;
+            //         // bookList.searchData(upUrl, bookList.loadTable);
+            //     })
+            //     preId = val.id;
+            // } else {
+            //     preId = val.id;
+            // }
+
             // if (bookList.user != "" && bookList.super_user == "") {
             //     var $button1 = $('<button value="'+ val.id +'" class="btn btn-primary">加入</button>');
             //     var $button2 = $('<button value="'+ val.id +'" class="btn btn-danger">移除</button>');
@@ -74,6 +101,43 @@ bookList.loadTable = function(data) {
             }
             $tbody.append($tr);
         })
+
+        for (var j=1; j<data.length; j++) {
+            if (j == 1) {
+                $tbody.find("tr:eq(" + (j-1) + ") td button").click(function () {
+                    var moveId2 = $(this).parent().parent().next().find("td button").attr("id").substr(6);
+                    var downUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(8) + "&moveId2=" + moveId2;
+                    bookList.searchData(downUrl, search_data);
+                })
+                $tbody.find("tr:eq(" + j + ") td button:eq(0)").click(function () {
+                    var moveId2 = $(this).parent().parent().prev().find("td button").attr("id").substr(8);
+                    var upUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(6) + "&moveId2=" + moveId2;
+                    bookList.searchData(upUrl, search_data);
+                })
+            } else if (j == data.length-1) {
+                $tbody.find("tr:eq(" + (j-1) + ") td button:eq(1)").click(function () {
+                    var moveId2 = $(this).parent().parent().next().find("td button").attr("id").substr(6);
+                    var downUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(8) + "&moveId2=" + moveId2;
+                    bookList.searchData(downUrl, search_data);
+                })
+                $tbody.find("tr:eq(" + j + ") td button").click(function () {
+                    var moveId2 = $(this).parent().parent().prev().find("td button:eq(0)").attr("id").substr(6);
+                    var upUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(6) + "&moveId2=" + moveId2;
+                    bookList.searchData(upUrl, search_data);
+                })
+            } else {
+                $tbody.find("tr:eq(" + (j-1) + ") td button:eq(1)").click(function () {
+                    var moveId2 = $(this).parent().parent().next().find("td button:eq(1)").attr("id").substr(8);
+                    var downUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(8) + "&moveId2=" + moveId2;
+                    bookList.searchData(downUrl, search_data);
+                })
+                $tbody.find("tr:eq(" + j + ") td button:eq(0)").click(function () {
+                    var moveId2 = $(this).parent().parent().prev().find("td button:eq(0)").attr("id").substr(6);
+                    var upUrl = bookList.moveUrl + "?moveId1=" + $(this).attr("id").substr(6) + "&moveId2=" + moveId2;
+                    bookList.searchData(upUrl, search_data);
+                })
+            }
+        }
     }
 }
 
@@ -115,6 +179,7 @@ bookList.searchData = function(dataUrl, callback) {
         success: function(data) {
             callback(data);
         }
+
     })
 }
 
