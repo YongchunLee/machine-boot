@@ -14,8 +14,8 @@ public class MachineBootApplication extends SpringBootServletInitializer {
         return builder.sources(MachineBootApplication.class);
     }
 
-	public static void main(String[] args) {
-		SpringApplication.run(MachineBootApplication.class, args);
-	}
+//	public static void main(String[] args) {
+//		SpringApplication.run(MachineBootApplication.class, args);
+//	}
 
 }

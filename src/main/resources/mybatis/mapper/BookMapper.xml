@@ -14,10 +14,9 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="user_count" jdbcType="INTEGER" property="userCount" />
   </resultMap>
   <select id="selectSearchData" resultMap="BaseResultMap">
-    select id,ISBN,book_name,author,publish,category,edition,book_info,book_cover,create_time,modify_time,remark,user_count
+    select id,ISBN,book_name,author,publish,category,edition,book_info,book_cover,create_time,modify_time,remark
     from book where is_del='0'
     <if test="findall != null and findall != ''">
       AND (ISBN=#{findall} or binary book_name LIKE CONCAT('%',#{findall},'%') or binary author LIKE CONCAT('%',#{findall},'%')

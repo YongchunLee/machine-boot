@@ -13,7 +13,7 @@ import java.util.List;
  * create at 2020 07 25 14:06
  */
 public interface BookMapper {
-    @Select("select id, ISBN, book_name, author, publish, category, edition, book_info, book_cover,user_count from book where is_del='0' order by order_view")
+    @Select("select id, ISBN, book_name, author, publish, category, edition, book_info, book_cover, remark from book where is_del='0' order by order_view")
     List<Book> selectBookData();
 
     @Select(" select id, ISBN, book_name, author, publish, category, " +

@@ -73,12 +73,6 @@ public class Book {
      */
     private String remark;
 
-    /**
-     * 用户量
-     * userCount
-     */
-    private Integer userCount;
-
     public Long getId() {
         return id;
     }
@@ -175,14 +169,6 @@ public class Book {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public Integer getUserCount() {
-        return userCount;
-    }
-
-    public void setUserCount(Integer userCount) {
-        this.userCount = userCount;
-    }
-
     @Override
     public String toString() {
         return "Book{" +
@@ -198,7 +184,6 @@ public class Book {
                 ", createTime=" + createTime +
                 ", modifyTime=" + modifyTime +
                 ", remark='" + remark + '\'' +
-                ", userCount=" + userCount +
                 '}';
     }
 }
