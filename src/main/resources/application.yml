@@ -12,10 +12,11 @@ spring:
 #      - classpath:sql/*.sql
 
 
+
 mybatis:
   configuration:
     lazy-loading-enabled: true
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml
 
 ---
 
